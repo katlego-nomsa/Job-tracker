@@ -1,0 +1,8 @@
+.message { line-height: 1.5; color: var(--muted); }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}

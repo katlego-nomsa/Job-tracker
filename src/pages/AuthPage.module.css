@@ -1,0 +1,22 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) var(--space-4) 64px;
+}
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 28px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-card);
+  background: #fff;
+  box-shadow: 0 8px 0 var(--lime);
+}
+.card h1 { margin-bottom: 6px; font-size: 2.125rem; }
+.sub { margin-bottom: var(--space-4); color: var(--muted); }
+.submit { width: 100%; margin-top: var(--space-2); }
+.footer { margin-top: 20px; text-align: center; color: var(--muted); }
+.footer a { color: var(--ink); font-weight: 700; }
+
+.forgot { margin: -8px 0 18px; text-align: right; }
+.forgot a { color: var(--ink); font-weight: 700; }

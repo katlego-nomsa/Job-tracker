@@ -1,0 +1,42 @@
+.hero {
+  max-width: 760px;
+  padding: var(--space-6) 0 56px;
+}
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+}
+.lead {
+  margin: 20px 0 var(--space-5);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+.card {
+  padding: 28px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-card);
+  background: #fff;
+  box-shadow: 0 8px 0 var(--lime);
+}
+.card h2 { margin-bottom: var(--space-2); font-size: 1.25rem; }
+.card p { line-height: 1.5; color: var(--muted); }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin: 56px 0 64px;
+}
+@media (max-width: 480px) {
+  .actions > * { width: 100%; }
+}

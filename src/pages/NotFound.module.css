@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) var(--space-4) 64px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  padding: 40px 28px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-card);
+  background: #fff;
+  box-shadow: 0 8px 0 var(--lime);
+  text-align: center;
+}
+.code {
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.card h1 { font-size: 1.75rem; }
+.message {
+  margin-bottom: var(--space-3);
+  color: var(--muted);
+  line-height: 1.5;
+}
