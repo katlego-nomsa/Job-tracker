@@ -1,51 +1,108 @@
-Topic: React TS
-Submission Date: 23 September 2026
-Time: 09:00 am
+# Job Tracker
 
-Please submit by pushing to your github repository and creating a pull request to your mentor
+A job application tracker built with **React, TypeScript, React Router and JSON Server**. People can register, log in and keep track of the jobs they have applied for, so they can see how many are pending, led to an interview or were rejected.
 
-Title: ReactTS UI Challenge
+This is Task 3 of the ReactTS course (React navigation, routing, URL queries and URL parameters).
 
-Objective
-The objective of this task is to assess your understanding of ReactTS concepts and your ability to design and implement user interfaces (UI) using ReactTS components. In this challenge, you will be creating your own UI component from scratch, demonstrating your knowledge of React best practices, component structure, and reusability.
+## Links
 
-This is the official first task of the curriculum, based on React Lesson 2, focusing mainly on design implementation, styling and screen responsiveness.
+- **Figma design:** https://www.figma.com/proto/B60mUhrzmBPkUzC2Ga4qbe/Register?node-id=0-1&t=nN6JttDbvCaTHkXz-1
+- **Live site:** https://job-tracker-llrw.vercel.app
+- **Pseudocode:** [job-pseudocode.md](./job-pseudocode.md)
 
-Choose one of the designs in the folder and implement the UI exactly as it is.
+> **About the live site:** the React app is hosted on Vercel, but its database (JSON Server) runs on my own computer and is shared through a temporary tunnel. The live site only works while that tunnel is running. If you see "Something went wrong" when registering or logging in, the tunnel is off. The app always works locally, see [Run it locally](#run-it-locally).
 
-Instructions:
-Create a vite ReactTS project in the directory
-Choose one of the files (design), delete the rest. (your repo should the design you have chosen).
-Using ReactTS, create a front-end implementation of the UI design.
-Pay close attention to the layout, colours, typography, and overall visual elements to ensure accurate replication.
-You may use your own icons, images, and typography that closely resemble those used in the UI design.
-Use appropriate ReactTS components and styling techniques to achieve the desired design.
-Implement interactivity and responsiveness (from mobile to desktop) where applicable.
-Test your implementation thoroughly to ensure proper functionality.
-Make sure all reappearing code is set up as reusable components to ensure readability and maintainability
-Host your work using Github pages , firebase or any hosting site of your choice.
+## Features
 
-Notes: 
-While replicating the design, focus on visual fidelity and user experience.
-Use your creativity to find icons, images, typography and colors (color codes) that closely resemble those used in the UI design.
-Apply your knowledge of ReactTS and front-end development best practices to accomplish the task.
-Make use of reusable components wherever possible.
-Feel free to use any additional libraries or tools that you are comfortable with.
-Be attentive to details and strive for accuracy in your implementation.
-Remember, the purpose of this task is to assess your ability to translate a design into a functional UI using ReactTS. If you have any questions or need clarification, please don't hesitate to reach out.
-Stick to plain CSS for styling
+- **Six pages:** Landing, Register, Login, Home (my jobs), Job details and a 404 page. A Forgot password page is included too.
+- **Accounts:** register and log in. Pages with private data are protected, so logged-out visitors are sent to the login page and returned to the page they wanted after logging in.
+- **Strong passwords:** a strength meter and a checklist (8+ characters, uppercase, lowercase, number, symbol). An eye button shows the password for one second.
+- **Jobs (CRUD):** add, view, edit and delete jobs. Each job has a company, role, status (Applied, Interviewed or Rejected), date applied and duties, plus optional address, contact details, requirements and notes.
+- **Search, filter and sort from the URL:** search by company or role, filter by status, and sort by date (newest or oldest). The values live in the address bar, so a link always gives the same view.
+- **Status colours:** yellow for Applied, green for Interviewed, red for Rejected. Every badge also has a text label, so colour is never the only signal.
+- **Feedback:** loaders and disabled buttons while requests run, pop-up messages (toasts) for success and errors, a confirmation popup before deleting, and empty states ("No jobs yet", "No jobs match your search").
+- **Validation:** every form checks its input and shows a message under the field.
+- **Responsive:** works from 320px up to wide desktop screens.
+- **Accessibility:** labelled inputs, visible focus outlines, keyboard-friendly popups (Escape to close, focus kept inside), and messages announced to screen readers.
 
-Evaluation Criteria:
-Accuracy of the design
-Was the design layout properly imitated
-Were the same colors maintained
-Were similar fonts to those in the design used
-Were all elements  imitated, is there an element on the design that’s missing on the implementation
-Page interactivity
-Do links change color when hovered over
-Do buttons change color when hovered over
-Utilisation of ReactTS features
-Did developer create own components
-Were developer-created components re-used for similar UI elements
-Responsiveness of the page
-Is the page responsive to different web view sizes
+## Pages and routes
+
+| Path | Page | Access |
+| --- | --- | --- |
+| `/` | Landing | Public |
+| `/register` | Register | Public |
+| `/login` | Log in | Public |
+| `/forgot-password` | Reset password | Public |
+| `/home` | My jobs | Logged in only |
+| `/jobs/:id` | Job details | Logged in only (a job you do not own shows the 404 page) |
+| `*` | 404 page | Public |
+
+### URL queries on `/home`
+
+| Query | Values | Default |
+| --- | --- | --- |
+| `search` | any text (matches company or role) | empty |
+| `status` | `Applied`, `Interviewed`, `Rejected` | all |
+| `sort` | `asc` (oldest first), `desc` (newest first) | `desc` |
+
+
+## Tech stack
+
+- React 19 with TypeScript, built with Vite
+- React Router (`NavLink`, `useSearchParams`, `useParams`, protected routes)
+- JSON Server for the mock database
+- CSS Modules with shared design tokens (colours, spacing, type)
+
+## Run it locally
+
+You need **Node.js 20 or newer**.
+
+```bash
+# 1. Install the packages
+npm install
+
+# 2. Start the database and the app together
+npm start
+```
+
+- The app opens at http://localhost:5173
+- The database (JSON Server) runs at http://localhost:3001
+
+To start them separately, use `npm run server` (database) and `npm run dev` (app).
+
+Your data is saved in `db.json`. Reset it to this before committing so test accounts are not uploaded:
+
+```json
+{
+  "users": [],
+  "jobs": []
+}
+```
+
+## Project structure
+
+```
+src/
+  api.ts          all calls to JSON Server (the server address lives in one place)
+  types.ts        shared types
+  index.css       colour, spacing and font tokens
+  context/        AuthContext (who is logged in) and ToastContext (pop-up messages)
+  components/     Button, InputField, Navbar, JobCard, Modal, ProtectedRoute and more
+  pages/          Landing, Register, Login, ForgotPassword, Home, JobPage, NotFound
+  utils/          date and password helpers
+```
+
+## Deployment
+
+The React app is deployed on Vercel from the `Job-link` branch. The address of the database is set with the environment variable `VITE_API_URL`. If it is not set, the app uses `http://localhost:3001`. `vercel.json` makes page refreshes on routes like `/home` work.
+
+## Notes
+
+- This is a practice project. **Passwords are stored as plain text in `db.json`** because JSON Server does not hash them. Do not use a real password.
+- **Forgot password** has no email step: a person enters their username and chooses a new password. A real app would send a reset link.
+- The session is kept in the browser's session storage, so closing the tab logs the person out.
+
+
+## Git workflow
+
+Work was done on the `Job-link` branch and merged through a pull request into `main`, with my mentor assigned as reviewer.

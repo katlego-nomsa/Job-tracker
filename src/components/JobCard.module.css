@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-card);
+  background: #fff;
+  box-shadow: 0 8px 0 var(--lime);
+}
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.company { font-size: 1.25rem; }
+.company a { color: var(--ink); text-decoration: none; }
+.company a:hover { text-decoration: underline; }
+.role { margin-top: 2px; color: var(--muted); font-weight: 500; }
+.date { color: var(--muted); font-size: 14px; }
+.duties {
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px dashed #e0dac4;
+}
+.actions button {
+  min-height: 44px;
+  padding: 0 12px 0 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.actions button:hover { color: var(--ink); text-decoration: underline; }
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

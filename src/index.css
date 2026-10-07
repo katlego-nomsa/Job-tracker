@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap");
+
+:root {
+  --cream: #f7f3e8;
+  --lime: #c5f135;
+  --lime-tint: #f0f8cc;
+  --ink: #111111;
+  --muted: #55554a;
+  --border: #ddd8c8;
+  --applied-bg: #ffe08a;
+  --applied-text: #5c4300;
+  --interviewed-bg: #bfe8cf;
+  --interviewed-text: #0f5132;
+  --rejected-bg: #f8c9c4;
+  --rejected-text: #7a1a12;
+  --radius-card: 24px;
+  --radius-pill: 999px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+  background: linear-gradient(135deg, #eaf5b8 0%, var(--cream) 35%, var(--cream) 70%, #e3eaee 100%) fixed;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}

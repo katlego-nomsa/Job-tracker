@@ -1,0 +1,11 @@
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.applied { background: var(--applied-bg); color: var(--applied-text); }
+.interviewed { background: var(--interviewed-bg); color: var(--interviewed-text); }
+.rejected { background: var(--rejected-bg); color: var(--rejected-text); }

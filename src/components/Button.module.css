@@ -1,0 +1,52 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.primary {
+  background: var(--ink);
+  color: #fff;
+}
+.primary:hover {
+  background: #2c2c2c;
+}
+.secondary {
+  background: #fff;
+  color: var(--ink);
+}
+.secondary:hover {
+  background: var(--lime-tint);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.spinner {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  border: 3px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.danger {
+  background: #b3261e;
+  border-color: #b3261e;
+  color: #fff;
+}
+.danger:hover {
+  background: #8f1d17;
+}

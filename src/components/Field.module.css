@@ -1,0 +1,31 @@
+.field { margin-bottom: 18px; }
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #cfc9b4;
+  border-radius: 16px;
+  background: #fff;
+  font: inherit;
+  color: var(--ink);
+}
+.field select { height: 52px; padding: 0 16px; }
+.field textarea { min-height: 96px; resize: vertical; line-height: 1.5; }
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--ink);
+  outline: 3px solid var(--lime);
+}
+.hasError select,
+.hasError textarea { border-color: #b3261e; }
+.error {
+  margin-top: 6px;
+  color: #b3261e;
+  font-size: 14px;
+  font-weight: 600;
+}
